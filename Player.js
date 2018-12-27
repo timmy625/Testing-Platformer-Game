@@ -1,6 +1,6 @@
 function Player() {
     this.y = 20;
-    this.x = 20;
+    this.x = 0;
     this.width = 25;
     this.height = 25;
 
@@ -13,7 +13,8 @@ function Player() {
 
     this.show = function() {
         fill(0,255,204);
-        stroke(255,50);
+        strokeWeight(3);
+        stroke(100,255,255);
         rect(this.x,this.y,this.width,this.height);
     }
 
@@ -24,14 +25,22 @@ function Player() {
     this.update = function() {
         this.velocity += this.gravity;
         this.y += this.velocity;
-        this.x += 2;
 
-        if (this.y + this.height > height -1) {
-          this.y = height - this. height -1;
+        if (this.y + this.height > height -1 - 50) {
+          this.y = height - this. height -1 - 50;
           this.velocity = 0;
           this.jumpCount = 0;
 
         }
-
     }
+    this.move = function() {
+      if (playerIntroOver) {
+        this.x += 0;
+      } else {
+        this.x += 2;
+      }
+    }
+    // this.stationary = function() {
+    //   this.x += 0;
+    // }
 }
